@@ -4,3 +4,13 @@
       %h1.jumbotron-heading A Collection of Portraits and Fine Art
       %p.lead.text-muted
         A passionate, dedicated artist specializing in capturing the beauty we all hold within.
+  #posts.album.py-5.bg-light
+    .container
+      .card-columns
+        - @posts.each_slice(2) do |posts|
+          - posts.each do |post|
+            .card
+              = image_tag(post.link, :class => 'card-img-top')
+              .card-body
+                %p.card-text.text-muted
+                  = post.caption
